@@ -44,7 +44,7 @@ public class AdministratorServiceImplTest {
         Administrator administrator = new Administrator();
         administrator.setUserName("test-username");
         administrator.setSkills("skill1:skill2:skill3");
-        administrator.setFirstName("sasank");
+        administrator.setFirstName("usha");
 
         when(administratorRepository.findByUserName("test-username")).thenReturn(Optional.of(administrator));
 

@@ -39,7 +39,7 @@ public class LoginServiceImplTest {
     @BeforeEach
     void setup() {
         MockitoAnnotations.openMocks(this);
-        expectedResponse.setFirstName("sasank");
+        expectedResponse.setFirstName("usha");
     }
 
     @Test
@@ -49,7 +49,7 @@ public class LoginServiceImplTest {
         LoginRequest loginRequest = new LoginRequest(userName, password);
 
         Administrator administrator = new Administrator();
-        administrator.setFirstName("sasank");
+        administrator.setFirstName("usha");
         administrator.setUserName(userName);
         administrator.setPassword(password);
 
@@ -84,7 +84,7 @@ public class LoginServiceImplTest {
         LoginRequest loginRequest = new LoginRequest(userName, password);
 
         Administrator administrator = new Administrator();
-        administrator.setFirstName("sasank");
+        administrator.setFirstName("usha");
         administrator.setUserName(userName);
         administrator.setPassword(password);
 
