@@ -1,0 +1,93 @@
+
+/* Basic styling for the whole body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9; /* Lighter background for a modern look */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for the navigation or top bar */
+.top {
+    background-color: #0062cc; /* Updated to a different shade of blue */
+    color: #fff;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Container for the main content to center it on the page */
+.container {
+    padding: 20px;
+    max-width: 750px; /* Adjusted width for better proportion */
+    margin: 30px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Card styling for sectioned areas like forms */
+.card {
+    background: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06); /* Lighter shadow for cards */
+}
+
+/* Header of cards, often titles or section headers */
+.card-header {
+    background-color: #007bff; /* Consistent blue theme */
+    color: #ffffff;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Main body of cards where content like forms and texts reside */
+.card-body {
+    padding: 20px;
+}
+
+/* Form groups for layout of labels and fields */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+/* Styling for labels to make them stand out more */
+label {
+    font-weight: bold;
+    color: #555; /* Darker color for text for readability */
+    width:33%;
+}
+
+/* General input styles for text, number, and date fields */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da; /* Subtle borders for inputs */
+    border-radius: 4px; /* Rounded corners for modern look */
+    background-color: #fefefe; /* Very light background to distinguish input area */
+}
+
+/* Button styles for actions like submitting forms */
+button {
+    background-color: #28a745; /* Green color for success actions like 'submit' */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover effect for buttons to indicate interactivity */
+button:hover {
+    background-color: #218838; /* Slightly darker green on hover */
+}
+.column {
+    flex: 0 0 auto;
+    /* width: 50%; */
+}

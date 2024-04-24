@@ -1,122 +1,71 @@
-<div class="top">
-    <app-nav></app-nav>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+<div class="top">Registration Form</div>
 
-
-<div class="container pt-5">
+<div class="container">
     <div class="row">
         <div class="col"></div>
         <div class="col-6">
             <div class="card">
-                <div class="card-header text-center">Sign Up</div>
+                <div class="card-header">Sign Up</div>
                 <div class="card-body">
-                    <form #signUpForm="ngForm" action="">
-                        <div class="row">
-                            <div class="col">
-                                <div class="Form-group mx-2 my-3">
-                                    <label for="username">PROJECT NAME</label>
-                                    <input type="text" class="form-control" id="username" placeholder="Project Name"
-                                        name="name" [(ngModel)]="name">
-                                </div>
-                            </div>
+                    <form #signUpForm="ngForm" action="" method="post">
+                        <div class="form-group">
+                            <label for="username">Project Name</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter Project Name" name="name" required>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <label for="username">CLIENT NAME</label>
-                                <!-- form class="example-form"> -->
-                                <mat-form-field appearance="fill">
-
-                                    <mat-label>Select Client</mat-label>
-                                    <mat-select [(value)]="clientName">
-                                        <mat-option>None</mat-option>
-                                        <mat-option value="CapGemini">CapGemini</mat-option>
-                                        <mat-option value="Infosys">Infosys</mat-option>
-                                        <mat-option value="Airbnb">Airbnb</mat-option>
-                                        <mat-option value="Amazon">Amazon</mat-option>
-                                        <mat-option value="Apple">Apple</mat-option>
-                                        <mat-option value="Canon">Canon</mat-option>
-                                        <mat-option value="Cisco">Cisco</mat-option>
-                                        <mat-option value="Dell">Dell</mat-option>
-                                        <mat-option value="Facebook">Facebook</mat-option>
-                                        <mat-option value="Google">Google</mat-option>
-                                        <mat-option value="HP">HP</mat-option>
-                                        <mat-option value="IBM">IBM</mat-option>
-                                        <mat-option value="Intel">Intel</mat-option>
-                                        <mat-option value="LG">LG</mat-option>
-                                        <mat-option value="Microsoft">Microsoft</mat-option>
-                                        <mat-option value="Netflix">Netflix</mat-option>
-                                        <mat-option value="Oracle">Oracle</mat-option>
-                                        <mat-option value="Samsung">Samsung</mat-option>
-                                        <mat-option value="Sony">Sony</mat-option>
-                                        <mat-option value="Tesla">Tesla</mat-option>
-                                        <mat-option value="Uber">Uber</mat-option>
-                                        <!-- <mat-option value="option3">Option 3</mat-option> -->
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-
-                            <div class="col">
-                                <div class="Form-group mx-2 my-3">
-                                    <label for="password">FORECAST</label>
-                                    <input type="number" class="form-control" id="forecast" placeholder="forecast"
-                                        name="forecast" [(ngModel)]="forecast">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="clientName">Client Name</label>
+                            <select class="form-control" id="clientName" name="clientName" required>
+                                <option value="">Please select</option>
+                                <option value="CapGemini">CapGemini</option>
+                                <option value="Infosys">Infosys</option>
+                                <!-- Additional client options can be added here -->
+                            </select>
                         </div>
-                        <div class="col">
-                            <div class="Form-group mx-2 my-3">
-                                <label for="firstname">DESCRIPTION</label>
-                                <input type="text" class="form-control" id="firstname" placeholder="description"
-                                    name="description" [(ngModel)]="description">
-                            </div>
+                        <div class="form-group">
+                            <label for="forecast">Forecast</label>
+                            <input type="number" class="form-control" id="forecast" placeholder="Enter Forecast" name="forecast" required>
                         </div>
-
-                        <div class="col">
-                            <div class="Form-group mx-2 my-3">
-                                <label for="shipping">REQUIRED SKILLS</label>
-                                <input type="text" class="form-control" id="requiredSkills" placeholder="requiredSkills"
-                                    name="requiredSkills" [(ngModel)]="requiredSkills">
-                            </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" class="form-control" id="description" placeholder="Project Description" name="description" required>
                         </div>
-
-                        <div class="col">
-                            <div class="Form-group mx-2 my-3">
-                                <label for="lastname">GOALS</label>
-                                <input type="text" class="form-control" id="password" placeholder="goals"
-                                    name="lastname" [(ngModel)]="goals">
-                            </div>
+                        <div class="form-group">
+                            <label for="requiredSkills">Required Skills</label>
+                            <input type="text" class="form-control" id="requiredSkills" placeholder="Enter Required Skills" name="requiredSkills" required>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="Form-group mx-2 my-3">
-                                    <label for="email">TEAM LEAD ID</label>
-                                    <input type="number" class="form-control" id="teamLeaderId"
-                                        placeholder="teamLeaderId" name="teamLeaderId" [(ngModel)]="teamLeaderId">
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="Form-group mx-2 my-3">
-                                    <label for="date">Start Date</label>
-                                    <input type="date" class="form-control" id="date" placeholder="satrt date"
-                                        name="date" [(ngModel)]="date1">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="Form-group mx-2 my-3">
-                                    <label for="date">End Date</label>
-                                    <input type="date" class="form-control" id="date" placeholder="end date" name="date"
-                                        [(ngModel)]="date2">
-                                </div>
-                            </div>
-
+                        <div class="form-group">
+                            <label for="goals">Goals</label>
+                            <input type="text" class="form-control" id="goals" placeholder="Project Goals" name="goals" required>
                         </div>
-                        <button type="submit" class="btn btn-primary float-right" (click)="addBuyer()">Register</button>
+                        <div class="form-group">
+                            <label for="teamLeaderId">Team Lead ID</label>
+                            <input type="number" class="form-control" id="teamLeaderId" placeholder="Enter Team Lead ID" name="teamLeaderId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date1">Start Date</label>
+                            <input type="date" class="form-control" id="date1" name="date1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date2">End Date</label>
+                            <input type="date" class="form-control" id="date2" name="date2" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col">
-        </div>
+        <div class="col"></div>
     </div>
 </div>
+
+</body>
+</html>
