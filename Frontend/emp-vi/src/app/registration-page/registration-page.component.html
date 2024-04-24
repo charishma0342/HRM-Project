@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="registration-page.component.css">
 </head>
 <body>
 <div class="top">Registration Form</div>
 
 <div class="container">
     <div class="row">
-        <div class="col"></div>
-        <div class="col-6">
+        
+        <div class="column">
             <div class="card">
                 <div class="card-header">Sign Up</div>
                 <div class="card-body">
-                    <form #signUpForm="ngForm" action="" method="post">
+                    <form #signUpForm="ngForm" action="">
                         <div class="form-group">
                             <label for="username">Project Name</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter Project Name" name="name" required>
+                            <input type="text" class="form-control" id="username" placeholder="Enter Project Name" name="name"  [(ngModel)]="name">
                         </div>
                         <div class="form-group">
                             <label for="clientName">Client Name</label>
-                            <select class="form-control" id="clientName" name="clientName" required>
+                            <select class="form-control" id="clientName" name="clientName" [(value)]="clientName">
                                 <option value="">Please select</option>
                                 <option value="CapGemini">CapGemini</option>
                                 <option value="Infosys">Infosys</option>
@@ -32,38 +32,43 @@
                         </div>
                         <div class="form-group">
                             <label for="forecast">Forecast</label>
-                            <input type="number" class="form-control" id="forecast" placeholder="Enter Forecast" name="forecast" required>
+                            <input type="number" class="form-control" id="forecast" placeholder="Enter Forecast" name="forecast" [(ngModel)]="forecast">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <input type="text" class="form-control" id="description" placeholder="Project Description" name="description" required>
+                            <input type="text" class="form-control" id="description" placeholder="Project Description" name="description" [(ngModel)]="description">
                         </div>
                         <div class="form-group">
                             <label for="requiredSkills">Required Skills</label>
-                            <input type="text" class="form-control" id="requiredSkills" placeholder="Enter Required Skills" name="requiredSkills" required>
+                            <input type="text" class="form-control" id="requiredSkills" placeholder="Enter Required Skills" name="requiredSkills" [(ngModel)]="requiredSkills">
                         </div>
                         <div class="form-group">
                             <label for="goals">Goals</label>
-                            <input type="text" class="form-control" id="goals" placeholder="Project Goals" name="goals" required>
+                            <input type="text" class="form-control" id="goals" placeholder="Project Goals" name="goals" [(ngModel)]="goals">
                         </div>
                         <div class="form-group">
                             <label for="teamLeaderId">Team Lead ID</label>
-                            <input type="number" class="form-control" id="teamLeaderId" placeholder="Enter Team Lead ID" name="teamLeaderId" required>
+                            <input type="number" class="form-control" id="teamLeaderId" placeholder="Enter Team Lead ID" name="teamLeaderId" [(ngModel)]="teamLeaderId">
                         </div>
                         <div class="form-group">
-                            <label for="date1">Start Date</label>
-                            <input type="date" class="form-control" id="date1" name="date1" required>
+                            <label for="date">Start Date</label>
+                            <input type="date" class="form-control" id="date" name="date" placeholder="start date"
+                            name="date" [(ngModel)]="date1">>
                         </div>
                         <div class="form-group">
-                            <label for="date2">End Date</label>
-                            <input type="date" class="form-control" id="date2" name="date2" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Register</button>
-                    </form>
+                            <label for="date">End Date</label>
+                            <input type="date" class="form-control" id="date" placeholder="end date" name="date"
+                                [(ngModel)]="date2">
+                                   </div>
+                                   
+                                    
+                                   <button type="submit" class="btn btn-primary float-right reg_btn" (click)="addBuyer()">Register</button>
+             
+                                </form>
                 </div>
             </div>
         </div>
-        <div class="col"></div>
+       
     </div>
 </div>
 
