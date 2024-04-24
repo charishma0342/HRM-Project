@@ -1,0 +1,167 @@
+<div class="top">
+    <app-nav></app-nav>
+</div>
+
+<div class="row" id="search">
+    <h1 style="text-align: center; color: blue;">Add Projects</h1>
+    <div class="col">&nbsp;
+    </div>
+    <div class="col">
+    </div>
+    <div class="col">
+       
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button style="text-align: center;" mat-raised-button color="primary" [routerLink]="['/register']">Add a New Project</button>
+    </div>
+    
+    
+    <div class="col">
+        <div class="example-button-row">
+            
+        </div>
+    </div>
+    <div class="col">
+    </div>
+</div>
+<mat-divider></mat-divider>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div class="row" id="search">
+    <h1 style="text-align: center; color: blue;">Search Projects</h1>
+    <div class="col">&nbsp;
+    </div>
+    <div class="col">
+    </div>
+    <div class="col" style="text-align: center;">
+        <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input class="input-group" type="text" aria-label="Cities" matInput [formControl]="sourceControl"
+                    [matAutocomplete]="auto1">
+                <mat-autocomplete #auto1="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions1 | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-hint><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLIENT</b></mat-hint>
+            </mat-form-field>
+        </form>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+<button mat-raised-button color="primary" style="text-align: center;"(click)="search()">Search</button>
+    </div>
+    
+    
+    <div class="col">
+        <div class="example-button-row">
+            
+        </div>
+    </div>
+    <div class="col">
+    </div>
+</div>
+
+
+
+<div class="mt-4  p-3 mb-5 bg-white rounded card" style="margin-left:5% ; margin-right:5% ;">
+
+
+    <div class="row">
+        <!-- <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Franchise Name</mat-label>
+                <mat-select [(value)]="selected1" (selectionChange)="filterFranchise($event.value)">
+                    <mat-option> None </mat-option>
+                    <mat-option *ngFor="let pokemon of franchises" [value]="pokemon">
+                        {{pokemon}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Sort By</mat-label>
+                <mat-select [(value)]="selected2" (selectionChange)="sortHotels($event.value)">
+                    <mat-option> None </mat-option>
+                    <mat-option *ngFor="let pokemon of sortOptions" [value]="pokemon">
+                        {{pokemon}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div> -->
+
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel hideToggle disabled>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            PROJECT
+            </mat-panel-title>
+            <mat-panel-title>
+            CLIENT
+            </mat-panel-title>
+            <mat-panel-title>
+             POC
+            </mat-panel-title>
+            <mat-panel-title>
+             REQUIREMENT FORECAST
+            </mat-panel-title>
+       
+    </mat-expansion-panel-header>
+</mat-expansion-panel>
+</mat-accordion>
+    </div>
+
+
+    <div *ngFor="let proj of hotelSearchResponse ; index as i;">
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{proj.projectName}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                    {{proj.clientName}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                        {{proj.teamLeader.firstName}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                        {{proj.forecast}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div>
+                    <hr>
+                    <h3 style="text-align:center ;">Project Description : {{proj.projectDescription}}</h3>
+                    <p></p>
+                    <h3 style="text-align:center ;"> Assigned Employees </h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>EMP-ID</th>
+                                    <th>NAME</th>
+                                    <th>Email</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody *ngFor="let emp of proj.employees; index as i;">
+                                <tr>
+                                    <td>{{emp.employeeId}}</td>
+                                    <td>{{emp.firstName}}</td>
+                                    <td>{{emp.emailId}}</td>
+                                    <td> <button type="button" class="btn btn-primary"
+                                            (click)="btnClick(emp.employeeId);"><i class="fa fa-plus"></i>
+                                            view</button> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

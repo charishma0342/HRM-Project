@@ -1,0 +1,131 @@
+<div class="top">
+    <app-nav></app-nav>
+</div>
+<div class="row" id="search">
+    <h1 style="text-align: center; color: blue;">Book Hotels</h1>
+    <div class="col">
+    </div>
+    <div class="col" style="margin: left 10px; ;">
+        <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input class="input-group" type="text" aria-label="Cities" matInput [formControl]="sourceControl"
+                    [matAutocomplete]="auto1">
+                <mat-autocomplete #auto1="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions1 | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-hint><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCATION</b></mat-hint>
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="col">
+        <div class="input-group date" data-provide="datepicker">
+            <input type="date" [formControl]="startDate" class="form-control">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="input-group date" data-provide="datepicker">
+            <input type="date" [formControl]="retrunDate" class="form-control">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="search()">Search</button>
+        </div>
+    </div>
+    <div class="col">
+    </div>
+</div>
+
+
+
+<div class="mt-4  p-3 mb-5 bg-white rounded card" *ngIf="areHotelsAvailable" style="margin-left:5% ; margin-right:5% ;">
+
+
+    <div class="row">
+        <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Franchise Name</mat-label>
+                <mat-select [(value)]="selected1" (selectionChange)="filterFranchise($event.value)">
+                    <mat-option> None </mat-option>
+                    <mat-option *ngFor="let pokemon of franchises" [value]="pokemon">
+                        {{pokemon}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Sort By</mat-label>
+                <mat-select [(value)]="selected2" (selectionChange)="sortHotels($event.value)">
+                    <mat-option> None </mat-option>
+                    <mat-option *ngFor="let pokemon of sortOptions" [value]="pokemon">
+                        {{pokemon}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+
+    <div *ngFor="let hotel of filteredHotelList; index as i;">
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{hotel.hotelName}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                        {{hotel.location}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                        {{hotel.franchiseName}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                        {{hotel.hotelType}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                        {{hotel.rating}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div>
+                    <hr>
+                    <h3 style="text-align:center ;">Address : {{hotel.hotelAddress}}</h3>
+                    <p></p>
+                    <h3 style="text-align:center ;"> Type of rooms available are </h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Room Type</th>
+                                    <th>Amenities</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody *ngFor="let hotelRoom of hotel.hotelRoomsList; index as i;">
+                                <tr>
+                                    <td>{{hotelRoom.roomType}}</td>
+                                    <td>{{hotelRoom.amenities}}</td>
+                                    <td>{{hotelRoom.price}}</td>
+                                    <td> <button type="button" class="btn btn-primary"
+                                            (click)="btnClick(hotelRoom.hotelRoomId);"><i class="fa fa-plus"></i>
+                                            Book</button> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

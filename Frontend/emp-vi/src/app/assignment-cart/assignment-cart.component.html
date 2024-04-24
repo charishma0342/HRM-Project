@@ -1,0 +1,82 @@
+<div class="top">
+    <app-nav></app-nav>
+</div>
+<section class="h-100 h-custom">
+    <div class="container py-5 h-50">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12">
+                <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            <div class="col-lg-8">
+                                <div class="p-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-5">
+                                        <h1 class="fw-bold mb-0 text-black">Assignments</h1>
+                                        <h5 class="mb-0 text-muted">{{count}} Entries</h5>
+                                    </div>
+
+                                    <div *ngIf="isAssignmentPresent"
+                                        class="row mb-4 d-flex justify-content-between align-items-center">
+                                        <hr class="my-4">
+                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                            <img src="https://i5.walmartimages.com/asr/c749b0ba-b0fa-44e8-a739-a4cc564f117c.70d46c48d114aee45578f0428ca2d8e9.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+                                                class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <h5 class="text-muted">Assignment Code Name : {{assignmentResponse.promoCodeTitle}}
+                                            </h5>
+                                            <h5 class="text-muted">Assignment Code : {{assignmentResponse.promoCodeName}}</h5>
+                                            <h5 class="text-muted">Assignment Type : {{assignmentResponse.promoCodeType}}</h5>
+                                            <!-- <h5 class="text-muted">Promo Used for: {{assignmentResponse.promoCodeUsage}}</h5> -->
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                            <h5 class="text-muted">Assignment Value : {{assignmentResponse.promoCodeValue}}</h5>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                            <h5 class="mb-0">$ {{assignmentResponse.price}}</h5>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 bg-grey">
+                                <div class="p-5">
+                                    <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                                    <hr class="my-4">
+
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-uppercase">Entries {{count}}</h5>
+                                        <h5>$ {{totalCost}}</h5>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-uppercase">Tax (15%)</h5>
+                                        <h5>$ {{tax}}</h5>
+                                    </div>
+
+                                    <div *ngIf="isUserExists" class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-muted">Outstanding Bonus: {{userBonus}}</h5>
+                                        <button *ngIf="isDifferable" type="button" (click)="redeem()">Defer</button>
+                                    </div>
+
+                                    <hr class="my-4">
+
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <h5 class="text-uppercase">Total Cost to Company</h5>
+                                        <h5>$ {{finalCost}}</h5>
+                                    </div>
+
+                                    <button type="button" class="btn btn-dark btn-block btn-lg"
+                                        data-mdb-ripple-color="dark" (click)="submit()">Allocate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

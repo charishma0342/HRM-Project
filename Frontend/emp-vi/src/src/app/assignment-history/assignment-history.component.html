@@ -1,0 +1,111 @@
+<div>
+    <app-nav class="top"></app-nav>
+</div>
+<div>
+    <h2 style="text-align:center ;"> Assignment history</h2>
+    <!-- <div class="example-action-buttons">
+        <button mat-button (click)="accordion.openAll()">Expand All</button>
+        <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+    </div> -->
+    <div class="bg-white rounded card" *ngFor="let transaction of transactionResponseList; index as i;">
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{profileName}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                        {{transaction.transactionDate}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                        {{transaction.totalCostPaid}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div *ngIf="transaction.flight"> Flight details
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Header-1</th>
+                                    <th>Header-2</th>
+                                    <th>Header-3</th>
+                                    <th>Header-4</th>
+                                    <th>Header-5</th>
+                                    <th>Header-6</th>
+                                    <th>Header-7</th>
+                                    <th>Header-8</th>
+                                    <th>Header-9</th>
+                                    <th>Header-10</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr *ngIf="transaction.flight">
+                                    <td>1</td>
+                                    <td>{{transaction.flightResponse.flightNumber}}</td>
+                                    <td>{{transaction.flightResponse.airlinesName}}</td>
+                                    <td>{{transaction.flightResponse.sourceCity}}</td>
+                                    <td>{{transaction.flightResponse.destinationCity}}</td>
+                                    <td>{{transaction.flightResponse.startDate}}</td>
+                                    <td>{{transaction.flightResponse.endDate}}</td>
+                                    <td>{{transaction.numberOfPassengers}}</td>
+                                    <td>{{transaction.flightResponse.flightReference}}</td>
+                                    <td>{{transaction.flightResponse.miles}}</td>
+                                    <td>{{transaction.flightResponse.price}}</td>
+                                </tr>
+                                <tr *ngIf="transaction.returnFlight">
+                                    <td>2</td>
+                                    <td>{{transaction.returnFlightResponse.flightNumber}}</td>
+                                    <td>{{transaction.returnFlightResponse.airlinesName}}</td>
+                                    <td>{{transaction.returnFlightResponse.sourceCity}}</td>
+                                    <td>{{transaction.returnFlightResponse.destinationCity}}</td>
+                                    <td>{{transaction.returnFlightResponse.startDate}}</td>
+                                    <td>{{transaction.returnFlightResponse.endDate}}</td>
+                                    <td>{{transaction.returnPassengers}}</td>
+                                    <td>{{transaction.returnFlightResponse.flightReference}}</td>
+                                    <td>{{transaction.returnFlightResponse.miles}}</td>
+                                    <td>{{transaction.returnFlightResponse.price}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div *ngIf="transaction.hotel"> Hotel details
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Hotel Name</th>
+                                    <th>Location</th>
+                                    <th>check-in Date</th>
+                                    <th>Check-out date</th>
+                                    <th>Number of rooms</th>
+                                    <th>Number of days</th>
+                                    <th>Room Type</th>
+                                    <th>Price(per room per day)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>{{transaction.hotelResponse.hotelName}}</td>
+                                    <td>{{transaction.hotelResponse.location}}</td>
+                                    <td>{{transaction.hotelCheckInDate}}</td>
+                                    <td>{{transaction.hotelCheckOutDate}}</td>
+                                    <td>{{transaction.hotelRooms}}</td>
+                                    <td>{{transaction.hotelNumberOfDays}}</td>
+                                    <td>{{transaction.hotelResponse.hotelRoomsList[0].roomType}}</td>
+                                    <td>{{transaction.hotelResponse.hotelRoomsList[0].price}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

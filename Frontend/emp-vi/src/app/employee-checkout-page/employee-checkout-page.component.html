@@ -1,0 +1,184 @@
+<div>
+    <app-nav class="top"></app-nav>
+</div>
+
+
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="user-profile-card">
+        <mat-card-header>
+            <mat-card-title>{{ user.firstName }} {{ user.lastName }}</mat-card-title>
+            <mat-card-subtitle>{{ user.emailId }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-grid-list cols="3"  rowHeight="150px">
+                <mat-grid-tile>
+                    <div class="tile-title">Phone Number :</div>&nbsp;&nbsp;
+                    <div class="tile-value">{{ user.phoneNumber }}</div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="tile-title">Acquired Skills :</div>&nbsp;&nbsp;
+                    <div class="tile-value">{{ user.acquiredSkills?.join(',  ') }}</div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="tile-title">Joining Date :</div>&nbsp;&nbsp;
+                    <div class="tile-value">{{ user.joiningDate | date }}</div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="tile-title">CTC :</div>&nbsp;&nbsp;
+                    <div class="tile-value">{{ user.ctc | currency }}</div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="tile-title">Location :</div>&nbsp;&nbsp;
+                    <div class="tile-value">{{ user.location }}</div>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <div class="project-list">
+                <h3>Active Projects</h3>
+                <div *ngFor="let project of user.activeProjects">
+                    &nbsp;    &nbsp;     &nbsp;    &nbsp;
+                    <mat-divider></mat-divider>
+                    &nbsp;    &nbsp;     &nbsp;    &nbsp;
+                        <mat-accordion  >
+                            <mat-expansion-panel hideToggle >
+                              <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                 Project Name
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    {{ project.projectName }}
+                                </mat-panel-description>
+                              </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                    Project Description
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.projectDescription }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                   Goals
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.goals }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                    Start Date:
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.startDate | date }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                   Project Rating
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.rating }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                   Project Review
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.review }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                          </mat-accordion>
+                    
+                        </div>
+                
+            </div>
+
+            <div class="project-list">
+                <h3>Past Projects</h3>
+                <div *ngFor="let project of user.pastProjects">
+                    &nbsp;    &nbsp;     &nbsp;    &nbsp;
+                    <mat-divider></mat-divider>
+                    &nbsp;    &nbsp;     &nbsp;    &nbsp;
+                        <mat-accordion  >
+                            <mat-expansion-panel hideToggle >
+                              <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                 Project Name
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    {{ project.projectName }}
+                                </mat-panel-description>
+                              </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                    Project Description
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.projectDescription }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                   Goals
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.goals }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                    Start Date:
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.startDate | date }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                   Project Rating
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.rating }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                   Project Review
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    {{ project.review }}
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+                              </mat-expansion-panel>
+                          </mat-accordion>
+                    
+                        </div>
+                
+            </div>
+        </mat-card-content>
+        <button mat-button color="primary" (click)="openDialog(true)">Assign to Different Project</button>
+        <button mat-button color="primary" (click)="openDialog(false)">Update Employee's Review and Rating</button>
+    </mat-card>

@@ -1,0 +1,72 @@
+<div>
+    <app-nav class="top"></app-nav>
+</div>
+
+<div class="mx-0 mx-sm-auto mt-3">
+    <div class="card">
+      <div class="card-header bg-dark">
+        <h3 class="card-title text-white mt-2" id="exampleModalLabel" style="text-align:center ;">Feedback request</h3>
+      </div>
+      <div class="modal-body mt-2">
+        <div class="text-center">
+          <i class="far fa-file-alt fa-4x mb-3 text-primary"></i>
+          <p>
+            <strong>Your opinion matters</strong>
+          </p>
+          <p>
+            Have some ideas how to improve our product?
+            <strong>Give us your feedback.</strong>
+          </p>
+        </div>
+  
+        <hr />
+  
+        <form class="px-4" action="">
+          <p class="text-center"><strong>Your rating:</strong></p>
+  
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example1" value="Very good" (change)="onItemChange($event.target.value)" />
+            <label class="form-check-label" for="radio3Example1">
+              Very good
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example2" value="Good" (change)="onItemChange($event.target.value)" />
+            <label class="form-check-label" for="radio3Example2">
+              Good
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example3" value="Medicore" (change)="onItemChange($event.target.value)" />
+            <label class="form-check-label" for="radio3Example3">
+              Medicore
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example4" value="Bad" (change)="onItemChange($event.target.value)" />
+            <label class="form-check-label" for="radio3Example4">
+              Bad
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example5" value="Very bad" (change)="onItemChange($event.target.value)" />
+            <label class="form-check-label" for="radio3Example5">
+              Very bad
+            </label>
+          </div>
+  
+          <p class="text-center"><strong>What could we improve?</strong></p>
+  
+          <!-- Message input -->
+          <div class="form-outline mb-4">
+            <textarea class="form-control" id="form4Example3" [formControl]="commentControl" rows="4"></textarea>
+            <label class="form-label" for="form4Example3">Your feedback</label>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer text-end">
+        <button type="button" class="btn btn-dark" (click)="submit()">Submit</button>
+      </div>
+      <h3 *ngIf="addedFeedback" style="text-align:center ;"> Thank you for you feedback </h3>
+    </div>
+  </div>
