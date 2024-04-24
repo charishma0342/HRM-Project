@@ -1,0 +1,92 @@
+<div>
+    <app-nav class="top"></app-nav>
+</div>
+<section class="vh-100">
+    <div class="container py-5">
+        <div class="rowjustify-content-center" style="border-radius: 15px; margin-left:30% ; margin-right:30% ;">
+            <!-- <div class="col col-md-9 col-lg-7 col-xl-5"> -->
+                <div *ngFor="let transaction of userPaymentMethods; index as i;" class="card mb-3" style="border-radius: 15px;" >
+                    <div class="card-body p-4">
+                        <div class="text-black">
+                            <div class="flex-grow-1 ms-3">
+                                <p *ngIf="transaction.default" class="mb-2 pb-1" style="margin-left:10% ;">Default Payment method</p>
+                                <div class="rounded-3 p-2 mb-2" style="background-color: #efefef; margin-left:10% ; margin-right:10% ;">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="text-muted mb-1">Payment Name :</p>
+                                        <p>{{transaction.paymentName}}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="text-muted mb-1">Card Number :</p>
+                                        <p>{{transaction.cardNumber}}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="text-muted mb-1">Name on the card :</p>
+                                        <p>{{transaction.nameOnTheCard}}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="text-muted mb-1">Expiry Date :</p>
+                                        <p>{{transaction.expiryDate}}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="text-muted mb-1">Security code :</p>
+                                        <p>{{transaction.securityCode}}</p>
+                                    </div>
+                                </div>
+                                <div *ngIf="!transaction.default" class="pt-1" style="padding-right:2% ;">
+                                    <button type="button" class="btn btn-dark flex-grow-1" (click)="makeDefault(transaction.id)">Default</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex pt-1">
+                    <button type="button" class="btn btn-dark flex-grow-1" (click)="add()">Add New Payment method</button>
+                </div>
+        </div>
+        <div *ngIf="showAddCardDetails" class = "mb-5 mt-5" style="border-radius: 15px; margin-left:30% ; margin-right:30% ;">
+
+            <div class="form-group row px-3">
+                <label class="mb-0">
+                    <h4 class="mb-0 text-sm">Payment Method Name</h4>
+                </label>
+                <input class="mb-2 form-control" [formControl]="myFormGroup.controls['paymentName']"
+                    #cardNumber type="text" name="cardNumber" placeholder="Enter the payment name">
+            </div>
+
+            <div class="form-group row px-3">
+                <label class="mb-0">
+                    <h4 class="mb-0 text-sm">Credit/Debit card number</h4>
+                </label>
+                <input class="mb-2 form-control" [formControl]="myFormGroup.controls['cardNumber']"
+                    #cardNumber type="text" name="cardNumber" placeholder="Enter your card number">
+            </div>
+
+            <div class="form-group row px-3">
+                <label class="mb-0">
+                    <h4 class="mb-0 text-sm">Name on the Card</h4>
+                </label>
+                <input class="mb-2 form-control" [formControl]="myFormGroup.controls['cardName']" #cardName
+                    type="text" name="cardName" placeholder="Enter the name on the card">
+            </div>
+
+            <div class="form-group row px-3">
+                <label class="mb-0">
+                    <h4 class="mb-0 text-sm">Expiry Date</h4>
+                </label>
+                <input class="mb-2 form-control" [formControl]="myFormGroup.controls['expiryDate']"
+                    #expiryDate type="date" name="expiryDate" placeholder="Enter your expiryDate">
+            </div>
+
+            <div class="form-group row px-3">
+                <label class="mb-0">
+                    <h4 class="mb-0 text-sm">Security Code</h4>
+                </label>
+                <input class="mb-2 form-control" [formControl]="myFormGroup.controls['cvv']" #cvv
+                    type="text" name="cvv" placeholder="Enter your cvv">
+            </div>
+
+            <div class="form-group row mb-5 px-3"> <button type="submit"
+                    class="btn btn-primary btn-block btn-dark text-center" (click)="addNew()">Add</button> </div>
+        </div>
+    </div>
+</section>

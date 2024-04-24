@@ -1,0 +1,46 @@
+<div class="top">
+    <app-nav></app-nav>
+</div>
+
+<div *ngIf="promosAvailable" style="text-align:center ;">
+    <hr>
+    <h3>Showing Promo Code</h3>
+</div>
+
+<div *ngIf="!promosAvailable" style="text-align:center ;">
+    <hr>
+    <h1>No availabe Promocodes please buy promocodes from deals section.</h1>
+</div>
+
+<div class="mt-2  p-3 mb-5 bg-white rounded card" *ngIf="promosAvailable" style="margin-left:5% ; margin-right:5% ;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Type</th>
+                <!-- <th scope="col">Usage(Flights/Hotels)</th> -->
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Price</th>
+                <th scope="col">Mileage </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let element of userPromoList; index as i;">
+            <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{element.promoCodeName}}</td>
+                <td>{{element.promoCodeTitle}}</td>
+                <td>{{element.promoCodeType}}</td>
+                <!-- <td>{{element.promoCodeUsage}}</td> -->
+                <td>{{element.startDate}}</td>
+                <td>{{element.endDate}}</td>
+                <td>{{element.promoCodeValue}}</td>
+                <td>{{element.price}}</td>
+                <td>{{element.mileage}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

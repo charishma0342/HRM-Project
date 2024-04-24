@@ -1,0 +1,16 @@
+<div>
+    <app-nav class="top"></app-nav>
+</div>
+
+<div class="card" style="margin-top:5% ;margin-left:38% ; width:30% ;">
+    <h3 class="card-header">Flight Status check</h3>
+    <div class="card-body">
+        <h4 class="card-title">Enter your flight number</h4>
+        <div class="form-outline mb-5">
+            <input type="text" id="input1" class="form-control" [formControl]="flightControl" placeholder="Flight Number" />
+            <p></p>
+            <h3 *ngIf="onClick" style="color:red ;"> The status of your flight is: {{statusResponse.response}}</h3>
+        </div>
+        <button type="button" class="btn btn-dark" (click)="submit()">Submit</button>
+    </div>
+</div>

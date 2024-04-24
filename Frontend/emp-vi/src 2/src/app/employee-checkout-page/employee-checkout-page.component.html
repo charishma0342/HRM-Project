@@ -1,0 +1,227 @@
+<div>
+    <app-nav class="top"></app-nav>
+</div>
+<section class="h-100 h-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12">
+                <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            <div class="col-lg-8">
+                                <div class="p-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-5">
+                                        <h1 class="fw-bold mb-0 text-black">Employee Checkout</h1>
+                                        <h5 class="mb-0 text-muted">{{count}} Employee</h5>
+                                    </div>
+
+                                    <div *ngIf="projectPresent"
+                                        class="row mb-4 d-flex justify-content-between align-items-center">
+                                        <hr class="my-4">
+                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                            <img src="https://news.delta.com/sites/default/files/2021-11/delta_c_r.png"
+                                                class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <h5 class="text-muted">{{employeeResponse.flightNumber}}</h5>
+                                            <h5 class="text-black mb-0">{{employeeResponse.airlinesName}}</h5>
+                                            <h5 class="text-black mb-0">{{employeeResponse.sourceCity}} to
+                                                {{employeeResponse.destinationCity}}</h5>
+                                            <h5 class="text-black mb-0">{{employeeResponse.startDate}}
+                                                {{employeeResponse.startTime}}</h5>
+                                            <h5 class="text-black mb-0">{{employeeResponse.endDate}}
+                                                {{employeeResponse.endTime}}</h5>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                            <input id="form1" min="1" max="9" [(ngModel)]="employeeCount"
+                                                name="quantity" value="1" type="number"
+                                                class="form-control form-control-sm" />
+                                            <button (click)="eSubmit()">
+                                                submit
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                            <h5 class="mb-0">$ {{employeeTicketPrice}}</h5>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- <hr class="my-4"> -->
+
+                                    <div *ngIf="releaseEmployeePresent"
+                                        class="row mb-4 d-flex justify-content-between align-items-center">
+
+                                        <hr class="my-4">
+                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                            <img src="https://news.delta.com/sites/default/files/2021-11/delta_c_r.png"
+                                                class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <h5 class="text-muted">{{releaseEmpResponse.flightNumber}}</h5>
+                                            <h5 class="text-black mb-0">{{releaseEmpResponse.airlinesName}}</h5>
+                                            <h5 class="text-black mb-0">{{releaseEmpResponse.sourceCity}} to
+                                                {{releaseEmpResponse.destinationCity}}</h5>
+                                            <h5 class="text-black mb-0">{{releaseEmpResponse.startDate}}
+                                                {{releaseEmpResponse.startTime}}</h5>
+                                            <h5 class="text-black mb-0">{{releaseEmpResponse.endDate}}
+                                                {{releaseEmpResponse.endTime}}</h5>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                            <input id="form1" min="1" max="9" [(ngModel)]="releaseemployeeCount"
+                                                name="quantity" value="1" type="number"
+                                                class="form-control form-control-sm" />
+                                            <button (click)="relempSubmit()">
+                                                submit
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                            <h5 class="mb-0">€ {{releaseEmployeeTicketPrice}}</h5>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div *ngIf="projectPresent"
+                                        class="row mb-4 d-flex justify-content-between align-items-center">
+
+                                        <hr class="my-4">
+
+
+                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80"
+                                                class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <h5 class="text-muted">{{projectResponse.hotelName}}</h5>
+                                            <h5 class="text-black mb-0">{{projectResponse.franchiseName}}</h5>
+                                            <h5 class="text-black mb-0">{{projectResponse.hotelType}}</h5>
+                                            <h5 class="text-black mb-0">{{hotelCheckInDate}} to {{hotelCheckOutDate}}
+                                            </h5>
+                                            <h5 class="text-black mb-0">{{hotelCheckInDays}} Days</h5>
+                                            <h5 class="text-black mb-0">{{projectResponse.location}}</h5>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                            <input id="form1" min="1" max="9" [(ngModel)]="projectCount"
+                                                name="quantity" value="1" type="number"
+                                                class="form-control form-control-sm" />
+                                            <button (click)="empSubmit()">
+                                                submit
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                            <h5 class="mb-0">$ {{projectCost}}</h5>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 bg-grey">
+                                <div class="p-5">
+                                    <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                                    <hr class="my-4">
+
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-uppercase">items {{count}}</h5>
+                                        <h5>$ {{totalCost}}</h5>
+                                    </div>
+
+                                    <div *ngIf="isAssignemntValid" class="d-flex justify-content-between mb-4"
+                                        style="color:green ;">
+                                        <h5 class="text-uppercase">{{assignmentID}} </h5>
+                                        <h5>$ {{offerCost}}</h5>
+                                    </div>
+
+                                    <div *ngIf="isClaimed" class="d-flex justify-content-between mb-4"
+                                        style="color:green ;">
+                                        <h5 class="text-uppercase">xxx </h5>
+                                        <h5>$ {{rP}}</h5>
+                                    </div>
+
+                                    <div *ngIf="oD" class="d-flex justify-content-between mb-4"
+                                        style="color:green ;">
+                                        <h5 class="text-uppercase">xxx</h5>
+                                        <h5>$ {{dP}}</h5>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-uppercase">xxx</h5>
+                                        <h5>$ {{tax}}</h5>
+                                    </div>
+
+                                    <!-- <h5 class="text-uppercase mb-3">Shipping</h5>
+
+                                    <div class="mb-4 pb-2">
+                                        <select class="select">
+                                            <option value="1">Standard-Delivery- €5.00</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                            <option value="4">Four</option>
+                                        </select>
+                                    </div> -->
+
+                                    <h5 class="text-uppercase mb-3">xxx</h5>
+
+                                    <div class="mb-5">
+                                        <div class="form-outline">
+                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg"
+                                                [formControl]="myFormGroup.controls['abc']" />
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-4 mt-1">
+                                            <label class="form-label" for="form3Examplea2">Enter Emp code</label>
+                                            <button type="button" (click)="apply()">Apply</button>
+                                        </div>
+                                        <div *ngIf="isAssignemntEntered && isAssignemntValid" class="d-flex justify-content-between mb-4">
+                                            <h5 class="text" style="color:green ;">Success</h5>
+                                        </div>
+                                        <div *ngIf="isAssignemntEntered && !isAssignemntValid" class="d-flex justify-content-between mb-4" style="color:green ;">
+                                            <h5 class="text" style="color:red ;">Invalid</h5>
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="isUserExists" class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-muted">Redeemable mileage: {{userBonus}}</h5>
+                                        <button *ngIf="isReedemable" type="button" (click)="redeem()">xxx</button>
+                                    </div>
+
+                                    <hr class="my-4">
+
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <h5 class="text-uppercase">xxx</h5>
+                                        <h5>$ {{finalBillableCost}}</h5>
+                                    </div>
+
+                                    <h5 class="text-uppercase mb-3">xxx</h5>
+
+                                    <div class="mb-4 pb-2">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Assignment Option</mat-label>
+                                            <mat-select [(value)]="expenseChosen"
+                                                (selectionChange)="select($event.value)">
+                                                <mat-option *ngFor="let pokemon of expense"
+                                                    [value]="pokemon.id">
+                                                    {{pokemon.paymentName}}-{{pokemon.cardNumber}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <button type="button" class="btn btn-dark btn-block btn-lg"
+                                        data-mdb-ripple-color="dark" (click)="submit()">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

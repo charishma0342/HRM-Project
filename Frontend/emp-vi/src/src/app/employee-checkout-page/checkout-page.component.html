@@ -1,0 +1,227 @@
+<div>
+    <app-nav class="top"></app-nav>
+</div>
+<section class="h-100 h-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12">
+                <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            <div class="col-lg-8">
+                                <div class="p-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-5">
+                                        <h1 class="fw-bold mb-0 text-black">Employee Checkout</h1>
+                                        <h5 class="mb-0 text-muted">{{count}} Employee</h5>
+                                    </div>
+
+                                    <div *ngIf="flightPresent"
+                                        class="row mb-4 d-flex justify-content-between align-items-center">
+                                        <hr class="my-4">
+                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                            <img src="https://news.delta.com/sites/default/files/2021-11/delta_c_r.png"
+                                                class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <h5 class="text-muted">{{flightResponse.flightNumber}}</h5>
+                                            <h5 class="text-black mb-0">{{flightResponse.airlinesName}}</h5>
+                                            <h5 class="text-black mb-0">{{flightResponse.sourceCity}} to
+                                                {{flightResponse.destinationCity}}</h5>
+                                            <h5 class="text-black mb-0">{{flightResponse.startDate}}
+                                                {{flightResponse.startTime}}</h5>
+                                            <h5 class="text-black mb-0">{{flightResponse.endDate}}
+                                                {{flightResponse.endTime}}</h5>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                            <input id="form1" min="1" max="9" [(ngModel)]="passengerCount"
+                                                name="quantity" value="1" type="number"
+                                                class="form-control form-control-sm" />
+                                            <button (click)="passengerSubmit()">
+                                                submit
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                            <h5 class="mb-0">$ {{flightTicketPrice}}</h5>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- <hr class="my-4"> -->
+
+                                    <div *ngIf="returnFlightPresent"
+                                        class="row mb-4 d-flex justify-content-between align-items-center">
+
+                                        <hr class="my-4">
+                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                            <img src="https://news.delta.com/sites/default/files/2021-11/delta_c_r.png"
+                                                class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <h5 class="text-muted">{{returnlightResponse.flightNumber}}</h5>
+                                            <h5 class="text-black mb-0">{{returnlightResponse.airlinesName}}</h5>
+                                            <h5 class="text-black mb-0">{{returnlightResponse.sourceCity}} to
+                                                {{returnlightResponse.destinationCity}}</h5>
+                                            <h5 class="text-black mb-0">{{returnlightResponse.startDate}}
+                                                {{returnlightResponse.startTime}}</h5>
+                                            <h5 class="text-black mb-0">{{returnlightResponse.endDate}}
+                                                {{returnlightResponse.endTime}}</h5>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                            <input id="form1" min="1" max="9" [(ngModel)]="returnPassengerCount"
+                                                name="quantity" value="1" type="number"
+                                                class="form-control form-control-sm" />
+                                            <button (click)="returnPassengerSubmit()">
+                                                submit
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                            <h5 class="mb-0">€ {{returnFlightTicketPrice}}</h5>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div *ngIf="hotelPresent"
+                                        class="row mb-4 d-flex justify-content-between align-items-center">
+
+                                        <hr class="my-4">
+
+
+                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80"
+                                                class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <h5 class="text-muted">{{hotelResponse.hotelName}}</h5>
+                                            <h5 class="text-black mb-0">{{hotelResponse.franchiseName}}</h5>
+                                            <h5 class="text-black mb-0">{{hotelResponse.hotelType}}</h5>
+                                            <h5 class="text-black mb-0">{{hotelCheckInDate}} to {{hotelCheckOutDate}}
+                                            </h5>
+                                            <h5 class="text-black mb-0">{{hotelCheckInDays}} Days</h5>
+                                            <h5 class="text-black mb-0">{{hotelResponse.location}}</h5>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                            <input id="form1" min="1" max="9" [(ngModel)]="hotelRoomsCount"
+                                                name="quantity" value="1" type="number"
+                                                class="form-control form-control-sm" />
+                                            <button (click)="hotelPassengerSubmit()">
+                                                submit
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                            <h5 class="mb-0">$ {{hotelRoomPrice}}</h5>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 bg-grey">
+                                <div class="p-5">
+                                    <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                                    <hr class="my-4">
+
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-uppercase">items {{count}}</h5>
+                                        <h5>$ {{totalPrice}}</h5>
+                                    </div>
+
+                                    <div *ngIf="isPromoValid" class="d-flex justify-content-between mb-4"
+                                        style="color:green ;">
+                                        <h5 class="text-uppercase">{{promoName}} </h5>
+                                        <h5>$ {{offerPrice}}</h5>
+                                    </div>
+
+                                    <div *ngIf="isReedemed" class="d-flex justify-content-between mb-4"
+                                        style="color:green ;">
+                                        <h5 class="text-uppercase">Redeemed price </h5>
+                                        <h5>$ {{redeemedPrice}}</h5>
+                                    </div>
+
+                                    <div *ngIf="offerDiscount" class="d-flex justify-content-between mb-4"
+                                        style="color:green ;">
+                                        <h5 class="text-uppercase">offer (20%)</h5>
+                                        <h5>$ {{discountedPrice}}</h5>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-uppercase">Tax (15%)</h5>
+                                        <h5>$ {{tax}}</h5>
+                                    </div>
+
+                                    <!-- <h5 class="text-uppercase mb-3">Shipping</h5>
+
+                                    <div class="mb-4 pb-2">
+                                        <select class="select">
+                                            <option value="1">Standard-Delivery- €5.00</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                            <option value="4">Four</option>
+                                        </select>
+                                    </div> -->
+
+                                    <h5 class="text-uppercase mb-3">Give code</h5>
+
+                                    <div class="mb-5">
+                                        <div class="form-outline">
+                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg"
+                                                [formControl]="myFormGroup.controls['promoCode']" />
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-4 mt-1">
+                                            <label class="form-label" for="form3Examplea2">Enter your code</label>
+                                            <button type="button" (click)="apply()">Apply</button>
+                                        </div>
+                                        <div *ngIf="isPromoEntered && isPromoValid" class="d-flex justify-content-between mb-4">
+                                            <h5 class="text" style="color:green ;">Promo Code successfully applied</h5>
+                                        </div>
+                                        <div *ngIf="isPromoEntered && !isPromoValid" class="d-flex justify-content-between mb-4" style="color:green ;">
+                                            <h5 class="text" style="color:red ;">Promo Code entered is invalid</h5>
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="isUserExists" class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-muted">Redeemable mileage: {{userMileage}}</h5>
+                                        <button *ngIf="isReedemable" type="button" (click)="redeem()">Reedem</button>
+                                    </div>
+
+                                    <hr class="my-4">
+
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <h5 class="text-uppercase">Total Cost to Project</h5>
+                                        <h5>$ {{finalPrice}}</h5>
+                                    </div>
+
+                                    <h5 class="text-uppercase mb-3">Assignment Methods</h5>
+
+                                    <div class="mb-4 pb-2">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Assignment Option</mat-label>
+                                            <mat-select [(value)]="paymentMethodChosen"
+                                                (selectionChange)="selectPayment($event.value)">
+                                                <mat-option *ngFor="let pokemon of userPaymentMethods"
+                                                    [value]="pokemon.id">
+                                                    {{pokemon.paymentName}}-{{pokemon.cardNumber}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <button type="button" class="btn btn-dark btn-block btn-lg"
+                                        data-mdb-ripple-color="dark" (click)="submit()">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

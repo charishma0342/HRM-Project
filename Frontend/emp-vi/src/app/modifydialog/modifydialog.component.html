@@ -1,0 +1,75 @@
+<div *ngIf="data.case">
+    <h1 style="text-align: center; color: blue;"> Assign to a Different Project </h1>
+    <div class="row" id="search">
+        <div class="col">
+        </div>
+        <div class="col" style="margin: left 10px;margin-top: 2% ;">
+            <!-- <form class="example-form">
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Client</mat-label>
+                    <mat-select [(value)]="selected1">
+                        <mat-option>None</mat-option>
+                        <mat-option value="1">CapGemini</mat-option>
+                        <mat-option value="2">Infosys</mat-option>
+                     <mat-option value="option3">Option 3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form> -->
+        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Assign-Project</mat-label>
+            <mat-select [(value)]="selected2">
+              <mat-option *ngFor="let food of data2" [value]="food.projectId">
+                {{food.projectName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+        <div class="col" style="margin-top:2% ;">
+            <!-- <div class="input-group date" data-provide="datepicker">
+            <input type="date" [formControl]="startDate" class="form-control">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div> -->
+        </div>
+        <div class="col" style="max-height: height 10px; max: width 10px;margin-top: 2% ; ;">
+            <!-- <div class="input-group date" data-provide="datepicker">
+            <input type="date" [formControl]="retrunDate" class="form-control">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div> -->
+        </div>
+        <div class="col" style="margin-top:2% ;">
+            <!-- <div class="example-button-row" [formGroup]="checkBox">
+            <mat-checkbox formControlName="return" class="example-margin">Search Return
+                Flights</mat-checkbox>
+        </div> -->
+        </div>
+        <div class="col" style="margin-top:2% ;">
+            <div class="example-button-row">
+                <button mat-raised-button color="primary" 
+             (click)="assign()">ASSIGN</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!data.case">
+    <h4 class="text-center">Leave a Review and Rating :</h4>  
+    <form role="form">
+      <div class="row form-group mx-5">
+       <div> <input type="text" class="form-control" rows="3" [value]="review" (input)="onValueChange($event)" /> 
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div><B>Rating</B> 
+        <!-- &nbsp;<input matInput type="number"  min="1" max="5"style="width:70px;padding: 10px;border: 1px solid black;" [(ngModel)]="rating">
+        &nbsp; &nbsp;<b>/ 5</b> -->
+        &nbsp; &nbsp;<ngb-rating [(rate)]="rating"></ngb-rating>
+      </div>
+      </div>
+      <div class="col text-center">
+        <button class="btn btn-success center-block" (click)="addReview()">Submit</button>
+      </div>
+    </form>
+</div>

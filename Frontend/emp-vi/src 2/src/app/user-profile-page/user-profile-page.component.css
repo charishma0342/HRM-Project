@@ -1,0 +1,9 @@
+.top{
+    position: fixed;
+    padding-top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  .container{
+    padding-top: 60px;
+  }

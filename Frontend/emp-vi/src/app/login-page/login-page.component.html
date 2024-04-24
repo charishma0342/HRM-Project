@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login-page.component.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Welcome!</h2>
+
+        </form> -->
+        <form class="formgroup" [formGroup]="myFormGroup" (ngSubmit)="login()">
+               <div class = "page">
+
+              
+                <input type="text" placeholder="Username" [formControl]="myFormGroup.controls['email']"
+                    [ngClass]="{'warningOutline' : emailValid}" type="text" (keyup)="emailValidation(email)"
+                    #email name="email" placeholder="Enter a valid Username" required>
+
+                <input type="password" placeholder="Password" class="form-control" [formControl]="myFormGroup.controls['password']" type="password"
+                    #password name="password" (keyup)="passwordEmpty()" placeholder="Enter password" required>
+
+             <button type="submit">Login</button>
+            <div style="margin-top:2% ;">New User? <a class="text-primary" [routerLink]="['/register']">Register</a> </div>
+        </div>
+        </form>
+    
+   </div>
+</body>
+</html>
