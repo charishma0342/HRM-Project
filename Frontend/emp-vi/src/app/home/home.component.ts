@@ -67,6 +67,7 @@ export class FlightSearchComponent implements OnInit{
       startWith(''),
       map(value => this._filter2(value || '')),
     );
+    this.search();
   }
 
   displayedColumns: any[] = ['flight_number', 'Airline', 'flight_type', 'source', 'destination', 'arrival_time','depart_time', 'rating', 'cost','button'];

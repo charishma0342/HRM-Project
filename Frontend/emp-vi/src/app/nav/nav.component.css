@@ -1,35 +1,25 @@
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
+/* Navbar styling */
+.navbar {
+  background-color: #333; /* Dark background color */
 }
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 60px;
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #fff !important; /* White text color */
 }
 
-.dropbtn {
-  background-color: aliceblue;
-  color: black;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  align-self:flex-end;
-}
-
+/* Dropdown styling */
 .dropdown {
   position: relative;
-  padding-right: 3rem;
   display: inline-block;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color:aliceblue;
-  width: 120px;
-  box-shadow: 0px 8px 1px 0px rgba(0,0,0,0.2);
+  background-color: #f9f9f9; /* Light background color */
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
@@ -39,19 +29,28 @@
   text-decoration: none;
   display: block;
 }
-.abct{
-  align-items: flex-end;
+
+.dropdown-content a:hover {
+  background-color: #ddd; /* Hover background color */
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+/* Sticky navigation */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
-.dropdown:hover .dropbtn {background-color: azure;}
+.sticky + .content {
+  padding-top: 60px;
+}
 
-
-
-
-
-
-
+/* Button hover effect */
+.dropbtn:hover {
+  background-color: #555; /* Darker background color on hover */
+  color: #fff; /* White text color on hover */
+}

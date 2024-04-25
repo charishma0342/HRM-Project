@@ -1,253 +1,173 @@
-<div class="top">
-    <app-nav></app-nav>
-</div>
-<h1 style="text-align: center; color: blue;"> SEARCH RESOURCES </h1>
-<div class="row" id="search" style="border:thin solid black; margin-top: 2%; margin-left:5% ; margin-right: 5%;">
-    <div class="col">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Resources</title>
+    <link rel="stylesheet" href="home.component.css"> <!-- Assuming your CSS file is named styles.css -->
+</head>
+
+<body class="bg">
+
+    <div class="top">
+        <app-nav></app-nav>
     </div>
-    <div class="col" style="margin: left 10px;margin-top: 2% ;">
-        <form class="example-form">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <input class="input-group" type="text" aria-label="Cities" matInput [formControl]="sourceControl"
-                    [matAutocomplete]="auto1">
-                <mat-autocomplete #auto1="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredOptions1 | async" [value]="option">
-                        {{option}}
-                    </mat-option>
-                </mat-autocomplete>
-                <mat-hint><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EMPLOYEE SKILL &nbsp;
-                        DOMAIN</b></mat-hint>
-            </mat-form-field>
-        </form>
-    </div>
-    <div class="col" style="margin: left 10px; margin-top: 2% ;">
-        <form class="example-form">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <input class="input-group" type="text" aria-label="Cities" matInput [formControl]="destinationControl"
-                    [matAutocomplete]="auto2">
-                <mat-autocomplete #auto2="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredOptions2 | async" [value]="option">
-                        {{option}}
-                    </mat-option>
-                </mat-autocomplete>
-                <mat-hint><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EMPLOYEE &nbsp;
-                        LOCATION</b></mat-hint>
-            </mat-form-field>
-        </form>
-    </div>
-    <div class="col" style="margin-top:2% ;">
-        <!-- <div class="input-group date" data-provide="datepicker">
-            <input type="date" [formControl]="startDate" class="form-control">
-            <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
+
+    <h1 style="text-align: center; color: blue;">SEARCH RESOURCES</h1>
+
+    <div id="search" class="container">
+        <div class="row">
+            <div class="col">
             </div>
-        </div> -->
-    </div>
-    <div class="col" style="max-height: height 10px; max: width 10px;margin-top: 2% ; ;">
-        <!-- <div class="input-group date" data-provide="datepicker">
-            <input type="date" [formControl]="retrunDate" class="form-control">
-            <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
+            <div class="col">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <input class="input-group" type="text" aria-label="Cities" matInput [formControl]="sourceControl"
+                            [matAutocomplete]="auto1">
+                        <mat-autocomplete #auto1="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions1 | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-hint><b>EMPLOYEE SKILL DOMAIN</b></mat-hint>
+                    </mat-form-field>
+                </form>
             </div>
-        </div> -->
-    </div>
-    <div class="col" style="margin-top:2% ;">
-        <!-- <div class="example-button-row" [formGroup]="checkBox">
-            <mat-checkbox formControlName="return" class="example-margin">Search Return
-                Flights</mat-checkbox>
-        </div> -->
-    </div>
-    <div class="col" style="margin-top:2% ;">
-        <div class="example-button-row">
-            <button mat-raised-button color="primary" (click)="search()">Search</button>
-        </div>
-    </div>
-    <div class="col">
-    </div>
-</div>
-
-<div class="mt-2  p-3 mb-5 bg-white rounded card" *ngIf="showFlights && areFlightsAvailable"
-    style="margin-left:5% ; margin-right:5% ;">
-
-
-
-    <div class="row">
-        <div class="col">&nbsp;</div>
-        <div class="col">
-            <mat-form-field appearance="fill">
-                <mat-label>TYPE</mat-label>
-                <mat-select [(value)]="flightAirlineFilter" (selectionChange)="flightfilterAirline($event.value)">
-                    <mat-option> None </mat-option>
-                    <mat-option *ngFor="let pokemon of expr" [value]="pokemon">
-                        {{pokemon}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-
-            <!-- <mat-form-field appearance="fill">
-                <mat-label>Sort By</mat-label>
-                <mat-select [(value)]="flightSortFilter" (selectionChange)="sortFLights($event.value)">
-                    <mat-option> None </mat-option>
-                    <mat-option *ngFor="let pokemon of flightSortOptions" [value]="pokemon">
-                        {{pokemon}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field> -->
-        </div>
-        <div class="col">
-            <mat-form-field appearance="fill">
-                <mat-label>PROJECT</mat-label>
-                <mat-select [(value)]="flightAirlineFilter" (selectionChange)="flightProj($event.value)">
-                    <mat-option> None </mat-option>
-                    <mat-option *ngFor="let pokemon of proj" [value]="pokemon">
-                        {{pokemon}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="col">
-            &nbsp;
+            <div class="col">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <input class="input-group" type="text" aria-label="Cities" matInput [formControl]="destinationControl"
+                            [matAutocomplete]="auto2">
+                        <mat-autocomplete #auto2="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions2 | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-hint><b>EMPLOYEE LOCATION</b></mat-hint>
+                    </mat-form-field>
+                </form>
+            </div>
+         
+            <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>TYPE</mat-label>
+                    <mat-select [(value)]="flightAirlineFilter" (selectionChange)="flightfilterAirline($event.value)">
+                        <mat-option> None </mat-option>
+                        <mat-option *ngFor="let pokemon of expr" [value]="pokemon">
+                            {{pokemon}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>PROJECT</mat-label>
+                    <mat-select [(value)]="flightAirlineFilter" (selectionChange)="flightProj($event.value)">
+                        <mat-option> None </mat-option>
+                        <mat-option *ngFor="let pokemon of proj" [value]="pokemon">
+                            {{pokemon}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <div class="example-button-row">
+                    <button mat-raised-button color="primary" (click)="search()">Search</button>
+                </div>
+            </div>
+            <div class="col">
+            </div>
         </div>
     </div>
 
-
-
-    <h1 style="text-align:center ;"> CURRENT RESOURCES</h1>
-    <mat-table #table [dataSource]="dataSource">
-        <ng-container matColumnDef="flight_number">
-            <mat-header-cell *matHeaderCellDef> Employee ID</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.employeeId}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Airline">
-            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="flight_type">
-            <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="source">
-            <mat-header-cell *matHeaderCellDef> SKILL DOMAIN </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.skillDomain}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="destination">
-            <mat-header-cell *matHeaderCellDef> LOCATION </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="arrival_time">
-            <mat-header-cell *matHeaderCellDef> DOJ </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.joiningDate}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="depart_time">
-            <mat-header-cell *matHeaderCellDef> PROJECT </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.currentProjectName}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="rating">
-            <mat-header-cell *matHeaderCellDef> RATING </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.overallRating}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="cost">
-            <mat-header-cell *matHeaderCellDef> CTC </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.ctc}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="button">
-            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-            <mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary"
-                    (click)="btnClick(element.employeeId);"><i class="fa fa-plus"></i>
-                    View</button> </mat-cell>
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-</div>
-
-<div class="mt-4  p-3 mb-5 bg-white rounded card" *ngIf="showFlights && !areFlightsAvailable"
-    style="text-align:center ;" style="margin-left:5% ; margin-right:5% ;">
-    No Employees Available
-</div>
-<!-- 
-<div class="mt-4  p-3 mb-5 bg-white rounded card" *ngIf="returnFlightsRequired && areReturnFlightsAvailable"
-    style="margin-left:5% ; margin-right:5% ;">
-
-
-    <div class="row">
-        <div class="col">
-            <mat-form-field appearance="fill">
-                <mat-label>Airline Name</mat-label>
-                <mat-select [(value)]="retrunFlightAirlineFilter"
-                    (selectionChange)="returnFlightfilterAirline($event.value)">
-                    <mat-option> None </mat-option>
-                    <mat-option *ngFor="let pokemon of returnFlightAirlines" [value]="pokemon">
-                        {{pokemon}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Sort By</mat-label>
-                <mat-select [(value)]="returnFlightSortFilter" (selectionChange)="sortReturnFLights($event.value)">
-                    <mat-option> None </mat-option>
-                    <mat-option *ngFor="let pokemon of returnFlightSortOptions" [value]="pokemon">
-                        {{pokemon}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+    <div class="mt-2 p-3 mb-5 bg-white rounded card" *ngIf="showFlights && areFlightsAvailable">
+        <div class="row">
+            <div class="col">&nbsp;</div>
+            <!-- <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>TYPE</mat-label>
+                    <mat-select [(value)]="flightAirlineFilter" (selectionChange)="flightfilterAirline($event.value)">
+                        <mat-option> None </mat-option>
+                        <mat-option *ngFor="let pokemon of expr" [value]="pokemon">
+                            {{pokemon}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div> -->
+            <!-- <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>PROJECT</mat-label>
+                    <mat-select [(value)]="flightAirlineFilter" (selectionChange)="flightProj($event.value)">
+                        <mat-option> None </mat-option>
+                        <mat-option *ngFor="let pokemon of proj" [value]="pokemon">
+                            {{pokemon}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div> -->
+            <div class="col">&nbsp;</div>
         </div>
-    </div> -->
-<!-- 
 
-    <h1 style="text-align:center ;"> Showing return flights</h1>
-    <mat-table #table [dataSource]="dataSource">
-        <ng-container matColumnDef="flight_number">
-            <mat-header-cell *matHeaderCellDef> flight_number </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.flightNumber}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Airline">
-            <mat-header-cell *matHeaderCellDef> Airline </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.airlinesName}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="flight_type">
-            <mat-header-cell *matHeaderCellDef> flight_type </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.flightType}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="source">
-            <mat-header-cell *matHeaderCellDef> source </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.sourceCity}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="destination">
-            <mat-header-cell *matHeaderCellDef> destination </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.destinationCity}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="arrival_time">
-            <mat-header-cell *matHeaderCellDef> arrival_time </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.startDate}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="depart_time">
-            <mat-header-cell *matHeaderCellDef> depart_time </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.endDate}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="rating">
-            <mat-header-cell *matHeaderCellDef> rating </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.flightRating}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="cost">
-            <mat-header-cell *matHeaderCellDef> cost </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="button">
-            <mat-header-cell *matHeaderCellDef> button </mat-header-cell>
-            <mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary"
-                    (click)="returnBtnClick(element.flightScheduleId);"><i class="fa fa-plus"></i>
-                    Assign</button> </mat-cell>
-        </ng-container>
+        <h1 style="text-align:center;">CURRENT RESOURCES</h1>
+        <div class="table_data">
+        <mat-table #table [dataSource]="dataSource">
+            <ng-container matColumnDef="flight_number">
+                <mat-header-cell *matHeaderCellDef> Employee ID</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.employeeId}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Airline">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="flight_type">
+                <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="source">
+                <mat-header-cell *matHeaderCellDef> SKILL DOMAIN </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.skillDomain}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="destination">
+                <mat-header-cell *matHeaderCellDef> LOCATION </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="arrival_time">
+                <mat-header-cell *matHeaderCellDef> DOJ </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.joiningDate}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="depart_time">
+                <mat-header-cell *matHeaderCellDef> PROJECT </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.currentProjectName}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="rating">
+                <mat-header-cell *matHeaderCellDef> RATING </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.overallRating}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="cost">
+                <mat-header-cell *matHeaderCellDef> CTC </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.ctc}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="button">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element"> <button type="button" class="btn vi_btn btn-primary"
+                        (click)="btnClick(element.employeeId);"><i class="fa fa-plus"></i>
+                        View</button> </mat-cell>
+            </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-</div>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+    </div>
 
-<div class="mt-4  p-3 mb-5 bg-white rounded card" *ngIf="returnFlightsRequired && !areReturnFlightsAvailable"
-    style="text-align:center ;" style="margin-left:5% ; margin-right:5% ;">
-    Flights are not available for this date. Try changing dates.
-</div> -->
+    <div class="mt-4 p-3 mb-5 bg-white rounded card" *ngIf="showFlights && !areFlightsAvailable"
+        style="text-align:center;">
+        No Employees Available
+    </div>
+
+    <!-- Add your Angular and Material script tags here -->
+
+</body>
+
+</html>
